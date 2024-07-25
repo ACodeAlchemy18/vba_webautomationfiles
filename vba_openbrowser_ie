@@ -1,0 +1,27 @@
+Sub OpenGeeksForGeeks()
+    Dim ie As Object
+    Dim url As String
+
+    ' Define the URL to be opened
+    url = "https://www.geeksforgeeks.org"
+
+    ' Create an instance of Internet Explorer
+    Set ie = CreateObject("InternetExplorer.Application")
+
+    ' Make IE visible
+    ie.Visible = True
+
+    ' Navigate to the specified URL
+    ie.Navigate url
+
+    ' Wait until the IE browser has finished loading the page
+    Do While ie.Busy Or ie.ReadyState <> 4
+        DoEvents
+    Loop
+
+    ' Cleanup
+    ' Uncomment the following lines if you want to close IE after opening the page
+    ' ie.Quit
+    ' Set ie = Nothing
+End Sub
+
